@@ -9,6 +9,12 @@ endif()
 
 project(dart)
 
+if(MSVC)
+    # use everything we have...
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive-")
+    add_compile_options(/permissive-)
+endif()
+
 string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPERCASE)
 
 # Use MACOSX_RPATH by default on OS X. This was added in CMake 2.8.12 and
